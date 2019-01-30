@@ -1,0 +1,63 @@
+﻿@model IEnumerable<Triathlon.Models.Workout>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Athlete.FirstName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.WorkoutDescription)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.WorkoutDate)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.WorkoutDistance)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.WorkoutIntensity)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.WorkoutCategory)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Athlete.FirstName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.WorkoutDescription)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.WorkoutDate)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.WorkoutDistance)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.WorkoutIntensity)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.WorkoutCategory)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.WorkoutID }) |
+            @Html.ActionLink("Details", "Details", new { id=item.WorkoutID }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.WorkoutID })
+        </td>
+    </tr>
+}
+
+</table>
